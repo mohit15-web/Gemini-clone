@@ -140,6 +140,11 @@ const Main = () => {
                 className="flex-1 h-full rounded-2xl bg-inherit pl-2 outline-none focus:outline-none"
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && input.trim() !== "") {
+                    onSent();
+                  }
+                }}
               />
               <Images className="text-gray-700 dark:text-primary cursor-pointer" />
               <SendHorizontal
